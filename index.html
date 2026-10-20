@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#160d24">
+
+    <meta name="description"
+          content="Rahma Birthday - حكاية مليانة حب ومفاجآت وذكريات">
+
+    <title>Rahma Birthday ❤️</title>
+
+    <!-- ملف التصميم -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- تجهيز الموقع كتطبيق -->
+    <link rel="manifest" href="manifest.json">
+
+</head>
+
+<body>
+
+    <main class="container" id="app">
+
+        <div class="heart">❤️</div>
+
+        <h1>Rahma Birthday</h1>
+
+        <p class="subtitle">
+            في حكايات مش بتتفتح لأي حد...
+            <br>
+            كل حكاية وليها مفتاحها ✨
+        </p>
+
+        <!-- تسجيل الدخول -->
+        <form id="loginForm">
+
+            <input
+                id="accessCode"
+                type="password"
+                placeholder="اكتب الكود السري"
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">
+                افتح حكايتك ❤️
+            </button>
+
+        </form>
+
+        <!-- رسائل التنبيه -->
+        <div id="message" role="status" aria-live="polite"></div>
+
+        <div class="footer">
+            صُنعت بحب ❤️
+        </div>
+
+    </main>
+
+    <!-- ملف وظائف التطبيق -->
+    <script src="app.js"></script>
+
+    <!-- التعامل مع تسجيل الدخول -->
+    <script>
+        document
+            .getElementById("loginForm")
+            .addEventListener("submit", function (event) {
+
+                event.preventDefault();
+
+                const input =
+                    document.getElementById("accessCode");
+
+                const value = input.value.trim();
+
+                const message =
+                    document.getElementById("message");
+
+                if (!value) {
+                    message.textContent =
+                        "اكتب الكود السري الأول ❤️";
+                    return;
+                }
+
+                if (typeof openRahmaBirthday === "function") {
+                    openRahmaBirthday(value);
+                } else {
+                    message.textContent =
+                        "في مشكلة في تحميل التطبيق. راجع ملف app.js.";
+                }
+
+            });
+    </script>
+
+    <!-- تسجيل ملف العمل بدون إنترنت -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", function () {
+                navigator.serviceWorker.register("./sw.js")
+                    .catch(function (error) {
+                        console.log(
+                            "تعذّر تسجيل Service Worker:",
+                            error
+                        );
+                    });
+            });
+        }
+    </script>
+
+</body>
+</html>

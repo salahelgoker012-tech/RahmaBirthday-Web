@@ -1,0 +1,16 @@
+
+{
+  "id": "./",
+  "name": "Rahma Birthday",
+  "short_name": "Rahma ❤️",
+  "description": "حكاية عيد ميلاد رحمة ومفاجآتها الخاصة",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#100b18",
+  "theme_color": "#160d24",
+  "icons": []
+}
